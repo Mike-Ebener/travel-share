@@ -15,6 +15,9 @@ const thoughtSchema = new Schema(
       default: Date.now,
       get: timestamp => dateFormat(timestamp)
     },
+    image: {
+      ///
+    },
     username: {
       type: String,
       required: true
