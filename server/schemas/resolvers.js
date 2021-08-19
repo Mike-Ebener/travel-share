@@ -1,4 +1,4 @@
-const { User, Thought, Image } = require('../models');
+const { User, Thought } = require('../models');
 const { AuthenticationError } = require('apollo-server-express');
 const { signToken } = require('../utils/auth');
 
@@ -94,9 +94,13 @@ const resolvers = {
       
         throw new AuthenticationError('You need to be logged in!');
       }, 
-      addImage: async(parent, args, context) => {
+      addImage: async (parent, args, context) => {
         if (context.user) {
-          const image = await Image.create({...args})
+          const image = await Thought.create({...args, username: context.user.username});
+
+          await Thought.findByIdAndUpdate(
+            ///
+          );
         }
       }
   }
