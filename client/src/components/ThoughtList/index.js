@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import InputImage from '../InputImage'
 
 
 const ThoughtList = ({ thoughts, title }) => {
@@ -18,7 +19,8 @@ const ThoughtList = ({ thoughts, title }) => {
                                 to={`/profile/${thought.username}`}
                                 style={{ fontWeight: 700 }}
                                 className="text-light"
-                            >
+                            
+                            ><InputImage></InputImage>
                                 {thought.username}
                             </Link>{' '}
                             thought on {thought.createdAt}
