@@ -13,7 +13,7 @@ const typeDefs = gql`
   type Thought {
     _id: ID
     thoughtText: String
-    image: ///
+    image: String
     createdAt: String
     username: String
     reactionCount: Int
@@ -44,7 +44,7 @@ const typeDefs = gql`
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
     addThought(thoughtText: String!): Thought
-    addImage(image: ///): Thought
+    addImage(image:String): Thought
     addReaction(thoughtId: ID!, reactionBody: String!): Thought
     addFriend(friendId: ID!): User
   }

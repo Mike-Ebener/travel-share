@@ -32,6 +32,7 @@ import Signup from './pages/Signup';
 //   uri: '/graphql'
 // });
 
+
 const client = new ApolloClient({
   request: operation => {
     const token = localStorage.getItem('id_token');

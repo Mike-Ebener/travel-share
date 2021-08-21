@@ -2,7 +2,10 @@ import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { ADD_THOUGHT } from '../../utils/mutations';
 import { QUERY_THOUGHTS, QUERY_ME } from '../../utils/queries';
-
+import Button from '@material-ui/core/Button'
+import PhotoCamera from '@material-ui/icons/PhotoCamera';
+import IconButton from '@material-ui/core/IconButton';    
+import firebase from ''
 
 const ThoughtForm = () => {
     const [thoughtText, setText] = useState('');
@@ -27,6 +30,16 @@ const ThoughtForm = () => {
             query: QUERY_ME,
             data: { me: { ...me, thoughts: [...me.thoughts, addThought] } }
           });
+
+          fileSelectHandler = event => {
+              this.setState({
+                  selectedFile: event.target.files[0]
+              })
+          }
+
+          fileUploaderHandler = () => {
+              axios.post('')
+          }
         }
       });
       

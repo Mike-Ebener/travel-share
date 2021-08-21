@@ -99,7 +99,7 @@ const resolvers = {
           const image = await Thought.create({...args, username: context.user.username});
 
           await Thought.findByIdAndUpdate(
-            ///
+            
           );
         }
       }
