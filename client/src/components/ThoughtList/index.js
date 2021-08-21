@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import InputImage from '../InputImage'
 import Button from '@material-ui/core/Button';
 import PhotoCamera from '@material-ui/icons/PhotoCamera';
 import IconButton from '@material-ui/core/IconButton';
@@ -29,7 +28,7 @@ const ThoughtList = ({ thoughts, title }) => {
       width: 400,
       flexWrap: 'wrap',
     }}>
-      <div style={{ width: '100%', float: 'left' }}>
+      <div id = "image" style={{ width: '100%', float: 'left' }}>
         <h3>WILL THE BUTTON WORK</h3> <br />
       </div>
       <input

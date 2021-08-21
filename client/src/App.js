@@ -7,7 +7,7 @@
 // import Home from './pages/Home';
 
 import React from 'react';
-import { CloudinaryContext, Image} from 'cloudinary-react'
+
 
 import { ApolloProvider } from '@apollo/client';
 import ApolloClient from 'apollo-boost';
