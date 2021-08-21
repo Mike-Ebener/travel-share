@@ -26,3 +26,5 @@ return new Promise((resolve, reject) => {
     }).end(image.buffer)
 })
 };
+
+module.exports = Image;
