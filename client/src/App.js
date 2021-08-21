@@ -22,9 +22,7 @@ import NoMatch from './pages/NoMatch';
 import SingleThought from './pages/SingleThought';
 import Profile from './pages/Profile';
 import Signup from './pages/Signup';
-import Button from '@material-ui/core/Button'
-import PhotoCamera from '@material-ui/icons/PhotoCamera'
-import IconButton from '@material-ui/core/IconButton'
+
 
 // const httpLink = createHttpLink({
 //   uri: '/graphql',
