@@ -81,6 +81,7 @@ const ThoughtForm = () => {
             </p> */}
             <form className="flex-column justify-center justify-space-between-md align-stretch"
                 onSubmit={handleFormSubmit}>
+
                 <label for='title'>
                     Title - Character Count: {titleCharacterCount}/150
                     {error && <span className="ml-2">Something went wrong...</span>}
@@ -97,6 +98,9 @@ const ThoughtForm = () => {
                 </label>
                 <textarea name='blogpost'
                     placeholder="Description"
+
+            
+
                     value={thoughtText}
                     className="form-input col-12 col-md-9"
                     onChange={handleChange}
