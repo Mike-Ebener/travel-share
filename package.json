@@ -23,5 +23,8 @@
   "homepage": "https://github.com/Mike-Ebener/deep-thoughts#readme",
   "devDependencies": {
     "concurrently": "^6.2.1"
+  },
+  "dependencies": {
+    "cloudinary": "^1.26.3"
   }
 }
