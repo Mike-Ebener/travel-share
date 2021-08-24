@@ -26,6 +26,15 @@ const userSchema = new Schema(
         ref: 'Thought'
       }
     ],
+    image: [
+      {
+      type: Schema.Types.ObjectId,
+      required: false,
+      unique: false,
+      minwidth: 10,
+      maxwidth: 500,
+      }
+    ],
     friends: [
       {
         type: Schema.Types.ObjectId,
