@@ -99,7 +99,9 @@ const resolvers = {
           const image = await Thought.create({...args, username: context.user.username});
 
           await Thought.findByIdAndUpdate(
-            
+            {_id: context.user._id},
+            { $push: {image: image._id}},
+            { new: true}
           );
         }
       }
