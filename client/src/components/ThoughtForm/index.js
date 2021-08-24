@@ -11,7 +11,7 @@ const ThoughtForm = () => {
     const [thoughtText, setText] = useState('');
     const [characterCount, setCharacterCount] = useState(0);
     const [photoURL, useCurrentPhotoURL] = useState(0)
-    const [photoURLCount, usePhotoURLCOUNT] = useState('')
+    const [photoURLCount, usePhotoURLCount] = useState('')
 
 
     const [addThought, { error }] = useMutation(ADD_THOUGHT, {

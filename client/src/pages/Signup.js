@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import Auth from '../utils/auth';
-
+import {Form} from 'react-bootstrap'
 import { useMutation } from '@apollo/client';
 import { ADD_USER } from '../utils/mutations';
 
 const Signup = () => {
   const [formState, setFormState] = useState({ username: '', email: '', password: '' });
+  const [validated] = useState('false')
   const [addUser, { error }] = useMutation(ADD_USER);
 
   // update state based on form input changes
@@ -24,6 +25,10 @@ const Signup = () => {
 const handleFormSubmit = async event => {
   event.preventDefault();
 
+  if (form.checkValidity() === false) {
+    event.preventDefault();
+  }
+
   // use try/catch instead of promises to handle errors
   try {
     const { data } = await addUser({
@@ -37,6 +42,7 @@ const handleFormSubmit = async event => {
 };
 
   return (
+    <Form noValidate validated = {validated} onSubmit = {handleFormSubmit}>
     <main className='flex-row justify-center mb-4'>
       <div className='col-12 col-md-6'>
         <div className='card'>
@@ -80,6 +86,7 @@ const handleFormSubmit = async event => {
         </div>
       </div>
     </main>
+    </Form>
   );
 };
 
