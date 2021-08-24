@@ -5,11 +5,14 @@ import { QUERY_THOUGHTS, QUERY_ME } from '../../utils/queries';
 import Button from '@material-ui/core/Button'
 import PhotoCamera from '@material-ui/icons/PhotoCamera';
 import IconButton from '@material-ui/core/IconButton';    
-import firebase from ''
+
 
 const ThoughtForm = () => {
     const [thoughtText, setText] = useState('');
     const [characterCount, setCharacterCount] = useState(0);
+    const [photoURL, useCurrentPhotoURL] = useState(0)
+    const [photoURLCount, usePhotoURLCOUNT] = useState('')
+
 
     const [addThought, { error }] = useMutation(ADD_THOUGHT, {
         update(cache, { data: { addThought } }) {
@@ -36,10 +39,6 @@ const ThoughtForm = () => {
                   selectedFile: event.target.files[0]
               })
           }
-
-          fileUploaderHandler = () => {
-              axios.post('')
-          }
         }
       });
       
@@ -48,6 +47,12 @@ const ThoughtForm = () => {
         if (event.target.value.length <= 280) {
             setText(event.target.value);
             setCharacterCount(event.target.value.length);
+        }
+
+        if (event.target.value.length && event.target.name === "PhotoURL" <= 120) {
+            useCurrentPhotoURL(event.target.value);
+            usePhotoURLCount(event.target.value.length);
+            
         }
     };
 
