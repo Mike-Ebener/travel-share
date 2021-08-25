@@ -1,4 +1,4 @@
-const { User, Thought } = require('../models');
+const { User, Trip } = require('../models');
 const { AuthenticationError } = require('apollo-server-express');
 const { signToken } = require('../utils/auth');
 
@@ -8,7 +8,7 @@ const resolvers = {
             if (context.user) {
               const userData = await User.findOne({ _id: context.user._id })
                 .select('-__v -password')
-                .populate('thoughts')
+                .populate('trips')
                 .populate('friends');
           
               return userData;
@@ -20,14 +20,14 @@ const resolvers = {
       return User.findOne({ username })
         .select('-__v -password')
         .populate('friends')
-        .populate('thoughts');
+        .populate('trips');
     },
-    thoughts: async (parent, { username }) => {
+    trips: async (parent, { username }) => {
       const params = username ? { username } : {};
-      return Thought.find(params).sort({ createdAt: -1 });
+      return Trip.find(params).sort({ createdAt: -1 });
     },
-    thought: async (parent, { _id }) => {
-      return Thought.findOne({ _id });
+    trip: async (parent, { _id }) => {
+      return Trip.findOne({ _id });
     }
   },
   Mutation: {
@@ -53,30 +53,30 @@ const resolvers = {
         const token = signToken(user);
         return { token, user };
       },
-      addThought: async (parent, args, context) => {
+      addTrip: async (parent, args, context) => {
         if (context.user) {
-          const thought = await Thought.create({ ...args, username: context.user.username });
+          const trip = await Trip.create({ ...args, username: context.user.username });
       
           await User.findByIdAndUpdate(
             { _id: context.user._id },
-            { $push: { thoughts: thought._id } },
+            { $push: { trips: trip._id } },
             { new: true }
           );
       
-          return thought;
+          return trip;
         }
       
         throw new AuthenticationError('You need to be logged in!');
       },
-      addReaction: async (parent, { thoughtId, reactionBody }, context) => {
+      addReaction: async (parent, { tripId, reactionBody }, context) => {
         if (context.user) {
-          const updatedThought = await Thought.findOneAndUpdate(
-            { _id: thoughtId },
+          const updatedTrip = await Trip.findOneAndUpdate(
+            { _id: tripId },
             { $push: { reactions: { reactionBody, username: context.user.username } } },
             { new: true, runValidators: true }
           );
       
-          return updatedThought;
+          return updatedTrip;
         }
       
         throw new AuthenticationError('You need to be logged in!');
