@@ -8,6 +8,8 @@
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
     "apollo-boost": "^0.4.9",
+    "cloudinary": "^1.26.3",
+    "cloudinary-react": "^1.7.0",
     "graphql": "^15.5.1",
     "jwt-decode": "^3.1.2",
     "react": "^17.0.2",
@@ -22,7 +24,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-  "proxy": "http://localhost:3001",
+  "proxy": "http://localhost:3000",
   "eslintConfig": {
     "extends": [
       "react-app",
