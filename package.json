@@ -1,5 +1,5 @@
 {
-  "name": "deep-thoughts",
+  "name": "deep-trips",
   "version": "1.0.0",
   "description": "",
   "main": "server/server.js",
@@ -12,15 +12,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Mike-Ebener/deep-thoughts.git"
+    "url": "git+https://github.com/Mike-Ebener/deep-trips.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Mike-Ebener/deep-thoughts/issues"
+    "url": "https://github.com/Mike-Ebener/deep-trips/issues"
   },
-  "homepage": "https://github.com/Mike-Ebener/deep-thoughts#readme",
+  "homepage": "https://github.com/Mike-Ebener/deep-trips#readme",
   "devDependencies": {
     "concurrently": "^6.2.1"
   }
