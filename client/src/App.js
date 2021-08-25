@@ -5,7 +5,6 @@
 // import Footer from './components/Footer';
 
 // import Home from './pages/Home';
-
 import React from 'react';
 
 import { ApolloProvider } from '@apollo/client';
