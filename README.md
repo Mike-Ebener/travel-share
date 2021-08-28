@@ -1,5 +1,7 @@
 # Travel share 
 
+React.js website
+
 ## License
 
 
@@ -64,7 +66,11 @@ Contributors:
 
 ## Images <a name = "images">
 
-![img](travel-share-ss1.png)
+<img width="564" alt="travel share ss1" src="https://user-images.githubusercontent.com/80983324/131225807-089cf53d-1677-4cf4-8e66-8466893514d0.png">
+ 
+<img width="564" alt="travelshare ss2" src="https://user-images.githubusercontent.com/80983324/131225817-3150e0de-b776-4db8-9972-31a832ebc3dc.png">
+
+
 
 
 
@@ -74,4 +80,5 @@ Heroku Link: https://travel-share44.herokuapp.com/
 
 Github Repo: https://github.com/Mike-Ebener/travel-share
 
-
+## Contact <a name = "contact">
+ If you have any questions about the repo, open an issue or contact any of us on github.
