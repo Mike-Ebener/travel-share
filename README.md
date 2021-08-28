@@ -82,4 +82,4 @@ Heroku Link: https://travel-share44.herokuapp.com/
 Github Repo: https://github.com/Mike-Ebener/travel-share
 
 ## Contact <a name = "contact">
- If you have any questions about the repo, open an issue or contact any of us on github.
+ If you have any questions about the repo, open an issue or contact any of us on github in the contributors section.
