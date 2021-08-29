@@ -19,9 +19,9 @@ const ContactForm = () => {
   
   // Function that displays a success toast on bottom right of the page when form submission is successful
   const toastifySuccess = () => {
-    toast('Form sent!', {
+    toast('Form Sent', {
       position: 'bottom-right',
-      autoClose: 5000,
+      autoClose: 3000,
       hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
@@ -45,8 +45,6 @@ const ContactForm = () => {
         email,
         subject,
         message
-
-        
       };
       
       await emailjs.send(
@@ -82,7 +80,7 @@ const ContactForm = () => {
               <br></br>
             <div className='contactForm'>
               <form id='contact-form' onSubmit={handleSubmit(onSubmit)} noValidate>
-                {/* Row 1 of form */}
+       
                 <div className='row formRow'>
                   <div className='col-6'>
                     <input
@@ -116,7 +114,7 @@ const ContactForm = () => {
                     )}
                   </div>
                 </div>
-                {/* Row 2 of form */}
+       
                 <div className='row formRow'>
                   <div className='col'>
                     <input
@@ -137,7 +135,7 @@ const ContactForm = () => {
                     )}
                   </div>
                 </div>
-                {/* Row 3 of form */}
+   
                 <div className='row formRow'>
                   <div className='col'>
                     <textarea
