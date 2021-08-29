@@ -1,51 +1,163 @@
-import React, {useState} from 'react';
+import { useForm } from 'react-hook-form';
+import emailjs from 'emailjs-com';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.min.css';
 
+emailjs.init("service_7xzl6sv");
 
 const ContactForm = () => {
-    const [status, setStatus] = useState("Submit")
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        const sendingMessage = alert('sending')
-        setStatus(sendingMessage)
-        const {username, email, message} = e.target.elements;
-        let details = {
-            username: username.value,
-            email: email.value,
-            message: message.value
-        };
-        let response = await fetch("https:localhost:3000/contact", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json;charset=utf-8",
-            },
-            body: JSON.stringify(details),
-        });
-        const submitMessage = alert('Submit')
-        setStatus(submitMessage)
-        let results = await response.json();
-        alert(results.status)
-    };
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors }
+  } = useForm();
 
-    return(
-        <form onSubmit= {handleSubmit}>
-            <div>
-                <label htmlFor="username"> Username:</label>
-                <input type = "text" id="username" required/>
+  const serviceId = 'service_7xzl6sv'
+  const templateId = 'template_awm21nn'
+  const userId = 'user_DhtOShBTTF4cGzXEN8lBe'
+  
+  // Function that displays a success toast on bottom right of the page when form submission is successful
+  const toastifySuccess = () => {
+    toast('Form sent!', {
+      position: 'bottom-right',
+      autoClose: 5000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: false,
+      className: 'submit-feedback success',
+      toastId: 'notifyToast'
+    });
+  };
+  
+  // Function called on submit that uses emailjs to send email of valid contact form
+  const onSubmit = async (data) => {
+    // Destrcture data object
+    const { username, email, subject, message } = data;
+    console.log('Name: ', username);
+    console.log('Email: ', email);
+    console.log('Subject: ', subject);
+    console.log('Message: ', message);
+    try {
+      const templateParams = {
+        username,
+        email,
+        subject,
+        message
+
+        
+      };
+      
+      await emailjs.send(
+        serviceId,
+        templateId,
+        templateParams,
+        userId
+      );
+
+      reset();
+      toastifySuccess();
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  return (
+    <div className='ContactForm'>
+         <script type = "text/javascript" src= "https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js">
+      </script>
+      <script type="text/javascript">
+          (function(){
+              emailjs.init("user_DhtOShBTTF4cGzXEN8lBe")
+          })
+      </script>
+      <div className='container'>
+        <div className='row'>
+          <div className='col-12 text-center'>
+            <div className='contactForm'>
+              <form id='contact-form' onSubmit={handleSubmit(onSubmit)} noValidate>
+                {/* Row 1 of form */}
+                <div className='row formRow'>
+                  <div className='col-6'>
+                    <input
+                      type='text'
+                      name='name'
+                      {...register('username', {
+                        required: { value: true, message: 'Please enter your name' },
+                        maxLength: {
+                          value: 30,
+                          message: 'Please use 30 characters or less'
+                        }
+                      })}
+                      className='form-control formInput'
+                      placeholder='Name'
+                    ></input>
+                    {errors.username && <span className='errorMessage'>{errors.username.message}</span>}
+                  </div>
+                  <div className='col-6'>
+                    <input
+                      type='email'
+                      name='email'
+                      {...register('email', {
+                        required: true,
+                        pattern: /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
+                      })}
+                      className='form-control formInput'
+                      placeholder='Email address'
+                    ></input>
+                    {errors.email && (
+                      <span className='errorMessage'>Please enter a valid email address</span>
+                    )}
+                  </div>
+                </div>
+                {/* Row 2 of form */}
+                <div className='row formRow'>
+                  <div className='col'>
+                    <input
+                      type='text'
+                      name='subject'
+                      {...register('subject', {
+                        required: { value: true, message: 'Please enter a subject' },
+                        maxLength: {
+                          value: 75,
+                          message: 'Subject cannot exceed 75 characters'
+                        }
+                      })}
+                      className='form-control formInput'
+                      placeholder='Subject'
+                    ></input>
+                    {errors.subject && (
+                      <span className='errorMessage'>{errors.subject.message}</span>
+                    )}
+                  </div>
+                </div>
+                {/* Row 3 of form */}
+                <div className='row formRow'>
+                  <div className='col'>
+                    <textarea
+                      rows={10}
+                      name='message'
+                      {...register('message', {
+                        required: true
+                      })}
+                      className='form-control formInput'
+                      placeholder='Message'
+                    ></textarea>
+                    {errors.message && <span className='errorMessage'>Please enter a message</span>}
+                  </div>
+                </div>
+                <button className='submit-btn' type='submit'>
+                  Submit
+                </button>
+              </form>
             </div>
-            <div>
-                <label htmlFor="email"> Email:</label>
-                <input type = "text" id = "email" required/>
-            </div>
-            <div>
-                <label htmlFor="message"> Message:</label>
-                <input type = "message" id="message" rows="5" required/>
-            </div>
-            <button type="submit" >{status}</button>
-        </form>
-    )
-    
+            <ToastContainer />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default ContactForm;
-
-
