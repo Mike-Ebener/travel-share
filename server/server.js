@@ -1,5 +1,8 @@
 const path = require('path');
 const express = require('express');
+const nodemailer = require('nodemailer')
+const router = express.Router();
+const cors = require('cors')
 // import ApolloServer
 const { ApolloServer } = require('apollo-server-express');
 
@@ -10,6 +13,7 @@ const db = require('./config/connection');
 
 const PORT = process.env.PORT || 3001;
 const app = express();
+
 // create a new Apollo server and pass in our schema data
 const server = new ApolloServer({
   typeDefs,
@@ -30,6 +34,45 @@ startExpressApolloServer();
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
+app.use(cors());
+app.use("/", router);
+
+const contactEmail = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: "nitinvemuri@gmail.com",
+    pass: "Jaycritch1",
+  },
+});
+
+contactEmail.verify((error) => {
+  if (error) {
+    console.log(error);
+  } else {
+    console.log("Ready to Send");
+  }
+});
+
+router.post("/contact", (req, res) => {
+  const username = req.body.username;
+  const email = req.body.email;
+  const message = req.body.message; 
+  const mail = {
+    from: name,
+    to: "nitinvemuri@gmail.com",
+    subject: "Contact Form Submission",
+    html: `<p>Name: ${username}</p>
+           <p>Email: ${email}</p>
+           <p>Message: ${message}</p>`,
+  };
+  contactEmail.sendMail(mail, (error) => {
+    if (error) {
+      res.json({ status: "ERROR" });
+    } else {
+      res.json({ status: "Message Sent" });
+    }
+  });
+});
 
 // Serve up static assets
 if (process.env.NODE_ENV === 'production') {

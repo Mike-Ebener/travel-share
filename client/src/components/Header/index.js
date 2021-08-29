@@ -23,11 +23,13 @@ const Header = () => {
               <a href="/" onClick={logout}>
                 Logout
               </a>
+              <Link to ="/contact">Contact</Link>
             </>
           ) : (
             <>
               <Link to="/login">Login</Link>
               <Link to="/signup">Signup</Link>
+              <Link to ="/contact">Contact</Link>
             </>
           )}
         </nav>

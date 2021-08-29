@@ -21,6 +21,7 @@ import NoMatch from './pages/NoMatch';
 import SingleTrip from './pages/SingleTrip';
 import Profile from './pages/Profile';
 import Signup from './pages/Signup';
+import ContactForm from './pages/ContactForm';
 
 // const httpLink = createHttpLink({
 //   uri: '/graphql',
@@ -58,6 +59,7 @@ function App() {
               <Route exact path="/signup" component={Signup} />
               <Route exact path="/profile/:username?" component={Profile} />
               <Route exact path="/trip/:id" component={SingleTrip} />
+              <Route exact path = "/contact" component= {ContactForm}/>
               <Route component={NoMatch} />
             </Switch>
           </div>

@@ -15,11 +15,13 @@ import TripForm from '../components/TripForm';
 
 const Profile = () => {
   const { username: userParam } = useParams();
-
   const [addFriend] = useMutation(ADD_FRIEND);
   const { loading, data } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
     variables: { username: userParam }
   });
+
+
+  
 
   // const { loading, data } = useQuery(QUERY_USER, {
   //   variables: { username: userParam }
@@ -47,11 +49,13 @@ const Profile = () => {
   const handleClick = async () => {
     try {
       await addFriend({
-        variables: { id: user._id }
+        variables: { id: user._id },
+        message: "friend added"
       });
     } catch (e) {
       console.error(e);
     }
+    
   };
 
   return (
