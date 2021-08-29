@@ -34,16 +34,16 @@ const ContactForm = () => {
   // Function called on submit that uses emailjs to send email of valid contact form
   const onSubmit = async (data) => {
     // Destrcture data object
-    const { username, email, subject, message } = data;
+    const { username, email, message } = data;
     console.log('Name: ', username);
     console.log('Email: ', email);
-    console.log('Subject: ', subject);
+
     console.log('Message: ', message);
     try {
       const templateParams = {
         username,
         email,
-        subject,
+
         message
       };
       
@@ -115,27 +115,7 @@ const ContactForm = () => {
                   </div>
                 </div>
        
-                <div className='row formRow'>
-                  <div className='col'>
-                    <input
-                      type='text'
-                      name='subject'
-                      {...register('subject', {
-                        required: { value: true, message: 'Please enter a subject' },
-                        maxLength: {
-                          value: 75,
-                          message: 'Subject cannot exceed 75 characters'
-                        }
-                      })}
-                      className='form-control formInput'
-                      placeholder='Subject'
-                    ></input>
-                    {errors.subject && (
-                      <span className='errorMessage'>{errors.subject.message}</span>
-                    )}
-                  </div>
-                </div>
-   
+                
                 <div className='row formRow'>
                   <div className='col'>
                     <textarea
