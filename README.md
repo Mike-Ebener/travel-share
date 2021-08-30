@@ -1,5 +1,7 @@
 # Travel share 
 
+Have you ever wanted to share a memorable moment from a trip, or have a place to view stories and pictures about trips that friends or family have taken? With Travel Share, you can do just that! Travel share is a no-nonsense app that allows users to give detailed descriptions about trips or vacations that they have gone one, along with allowing them to share pictures of it! You can even add friends on the app, so you can keep track of the awesome trips that your friends go on easily on the feed!
+
 ## License
 
 
@@ -21,7 +23,12 @@ This project is not licensed
  
 ## Description <a name = "description">
 
-  React.js application that shares travels. You can create a signup and then login, there is also a chat with reactions and rating, and also being able to post with images and text as well.
+  Travel Share is a React.js application that lets you share stories and pictures of places you have traveled. Whether it's to Disneyland or the Eiffel Tower, you can easily share your amazing trips!.= You can create a signup page that will allow you to post your own travel stories as well as communicate with others about their trips. 
+
+
+<img src="./client/public/travel.png" />
+<img src="./client/public/travel2.png" />
+<img src="./client/public/travel3.png" />
 
 
 ## Usage <a name = "usage">

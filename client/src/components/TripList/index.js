@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const TripList = ({ trips, title }) => {
     if (!trips.length) {
-        return <h3>No Trips Yet</h3>;
+        return <h3>Begin your adventures!</h3>;
     }
 
     return (
