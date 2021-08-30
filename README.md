@@ -27,6 +27,8 @@ This project is not licensed
 
 
 <img src="./client/public/travel.png" />
+<img src="./client/public/travel2.png" />
+<img src="./client/public/travel3.png" />
 
 
 ## Usage <a name = "usage">
