@@ -74,7 +74,7 @@ const ContactForm = () => {
         <div className='row'>
           <div className='col-12 text-center'>
               <div>
-                  If you have any problems please send a message below
+                  For any questions or feedback, please send a message below.
                   
               </div>
               <br></br>

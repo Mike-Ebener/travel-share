@@ -83,7 +83,7 @@ const TripForm = () => {
                 onSubmit={handleFormSubmit}>
 
                 <label for='title'>
-                    Title - Character Count: {titleCharacterCount}/150
+                    Title - Character Count: {titleCharacterCount}/30
                     {error && <span className="ml-2">Something went wrong...</span>}
                 </label>
                 <input name='title'
