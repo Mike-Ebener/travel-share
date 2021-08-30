@@ -1,5 +1,7 @@
 # Travel share 
 
+Have you ever wanted to share a memorable moment from a trip, or have a place to view stories and pictures about trips that friends or family have taken? With Travel Share, you can do just that! Travel share is a no-nonsense app that allows users to give detailed descriptions about trips or vacations that they have gone one, along with allowing them to share pictures of it! 
+
 ## License
 
 
